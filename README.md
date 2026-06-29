@@ -8,7 +8,7 @@
 ![Last Commit](https://img.shields.io/github/last-commit/Nuarton/qa-library-pipeline-del5m5)
 ![CI Pipeline Badge](https://github.com/Nuarton/qa-library-pipeline-del5m5/actions/workflows/ci.yml/badge.svg)
 
-<mark>*Replace `YOUR_USERNAME/YOUR_REPO` with your details*</mark>
+<mark>*README Change Test*</mark>
 
 ## Project Overview
 [TODO: Describe the library's data quality problem]
