@@ -1,1 +1,43 @@
 # Pipeline Architecture Diagram
+```mermaid
+flowchart TD
+        subgraph Source["Source files"]
+        Source_Catalogue[Catalogue.xlsx]
+        Source_Circulation[Circulation_data.csv]
+        Source_Events[Events_data.json]
+        Source_Feedback[feedback.txt]
+	end
+
+    subgraph Bronze["Bronze layer"]
+        Raw_Catalogue[Catalogue]
+        Raw_Circulation[Circulation_data]
+        Raw_Events[Events_data]
+        Raw_Feedback[Feedback]
+        
+    end
+    
+    Source_Catalogue --> Raw_Catalogue
+    Source_Circulation --> Raw_Circulation
+    Source_Events --> Raw_Events
+    Source_Feedback --> Raw_Feedback
+    
+    
+    subgraph Silver["Silver layer"]
+        Clean_Catalogue[Catalogue]
+        Clean_Circulation[Circulation_data]
+        Clean_Events[Events_data]
+        Clean_Feedback[Feedback]
+    end    
+    
+    Raw_Catalogue --> Check{Data Quality Checks}
+    Raw_Circulation --> Check
+    Raw_Events --> Check
+    Raw_Feedback --> Check
+    
+    
+    Check -->|Pass| Silver
+    Check -->|Fail| Quarantine[Review/Resolve]
+    Silver[Silver layer]
+    Silver --> Gold[Gold layer]
+
+```
